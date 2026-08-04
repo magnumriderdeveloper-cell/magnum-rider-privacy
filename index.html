@@ -85,11 +85,12 @@ and provides your player ID and display name. Google's own handling of that is c
 commercial cloud service. The database is not reachable from the internet: it accepts connections
 only from the machine it runs on, and the application connects to it using an account restricted to
 this game's data.</p>
-<p><strong>Please be aware:</strong> the connection between the game on your device and the game
-server is a direct network connection that is not encrypted. Your player ID, display name and game
-progress travel over that connection in a readable form. Someone able to observe traffic on the
-same network could in principle read them. No passwords are transmitted, because sign-in is handled
-entirely by Google. Encrypting this connection is a known improvement that has not yet been made.</p>
+<p>The connection between the game on your device and the game server is encrypted with TLS, so
+your player ID, display name and game progress are not readable by anyone able to observe the
+network in between. The game accepts only this server's own certificate, rather than any
+certificate a device has been persuaded to trust, which also rules out anyone posing as the server
+in the middle of that connection. No passwords are transmitted at any point, because signing in is
+handled entirely by Google.</p>
 
 <h2>How long it is kept</h2>
 <p>Your player record and the tracks you have built are kept for as long as the game operates, so
